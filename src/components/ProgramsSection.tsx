@@ -24,7 +24,7 @@ const programs = [
     title: "Atención a Familias",
     category: "Familia",
     description: "Acompañamiento integral a familias con talleres, orientación y recursos para fortalecer vínculos familiares.",
-    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763426540/Captura_de_pantalla_2025-11-17_184124_ayn9sh.png",
+    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763427013/Captura_de_pantalla_2025-11-17_184915_u4qvf4.png",
   },
 ];
 

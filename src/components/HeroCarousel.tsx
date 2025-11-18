@@ -4,16 +4,16 @@ import { Button } from "@/components/ui/button";
 
 const slides = [
   {
-    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026694/WhatsApp_Image_2025-11-13_at_2.50.04_AM_1_r2fbml.jpg",
-    alt: "Niños sonriendo en actividades comunitarias",
+    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026694/WhatsApp_Image_2025-11-13_at_2.50.04_AM_2_elr67t.jpg",
+    alt: "Jóvenes en talleres de desarrollo",
   },
   {
     image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026693/WhatsApp_Image_2025-11-13_at_2.50.05_AM_5_pondhu.jpg",
     alt: "Familias participando en programas educativos",
   },
   {
-    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026694/WhatsApp_Image_2025-11-13_at_2.50.04_AM_2_elr67t.jpg",
-    alt: "Jóvenes en talleres de desarrollo",
+    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026694/WhatsApp_Image_2025-11-13_at_2.50.04_AM_1_r2fbml.jpg",
+    alt: "Niños sonriendo en actividades comunitarias",
   },
   {
     image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026682/WhatsApp_Image_2025-11-13_at_2.57.21_AM_1_fzkdr4.jpg",
