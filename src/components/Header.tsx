@@ -6,10 +6,6 @@ import { NavLink } from "@/components/NavLink";
 const navigation = [
   { name: "Inicio", href: "/" },
   { name: "Nosotros", href: "/nosotros" },
-  { name: "Programas", href: "/programas" },
-  { name: "Involúcrate", href: "/involucrate" },
-  { name: "Recursos", href: "/recursos" },
-  { name: "Noticias", href: "/noticias" },
   { name: "Contacto", href: "/contacto" },
 ];
 
@@ -43,7 +39,7 @@ export const Header = () => {
             <img
               src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026692/WhatsApp_Image_2025-11-13_at_2.57.21_AM_krwcte.jpg"
               alt="Ministerio Vive A.C. Logo"
-              className="h-14 w-auto"
+              className="h-20 w-auto"
             />
           </NavLink>
 

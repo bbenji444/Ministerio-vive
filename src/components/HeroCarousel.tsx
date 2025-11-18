@@ -69,7 +69,7 @@ export const HeroCarousel = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up leading-tight">
-              Que tu ayuda cambie vidas
+              Ministerio Vive A.C.
             </h1>
             <h2 className="text-xl md:text-2xl lg:text-3xl text-white/95 mb-8 font-sans animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
               Salud integral, educación y esperanza para niñas, niños y familias en Clara Córdova y Los Jarros

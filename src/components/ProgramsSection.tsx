@@ -6,37 +6,25 @@ const programs = [
     title: "Salud Mental y Física",
     category: "Salud",
     description: "Terapias psicológicas, brigadas médicas y nutrición para fortalecer el bienestar integral de niños y familias.",
-    image: "[IMG_PROG_1]",
+    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763426047/WhatsApp_Image_2025-11-17_at_6.27.06_PM_qn8ree.jpg",
   },
   {
     title: "Educación y Cultura",
     category: "Educación",
     description: "Talleres educativos, apoyo escolar y actividades culturales que fomentan el desarrollo académico y creativo.",
-    image: "[IMG_PROG_2]",
+    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763426047/WhatsApp_Image_2025-11-17_at_6.29.25_PM_hwcn1f.jpg",
   },
   {
     title: "Recreación y Deporte",
     category: "Recreación",
     description: "Actividades deportivas y recreativas que promueven hábitos saludables, trabajo en equipo y sana convivencia.",
-    image: "[IMG_PROG_3]",
-  },
-  {
-    title: "Prevención de Violencia",
-    category: "Prevención",
-    description: "Programas especializados para prevenir violencia, adicciones y promover entornos seguros para la comunidad.",
-    image: "[IMG_PROG_4]",
-  },
-  {
-    title: "Proyectos Productivos",
-    category: "Desarrollo",
-    description: "Manos que Transforman y Las Delicias de Jarros: iniciativas que generan ingresos y autonomía económica.",
-    image: "[IMG_PROG_5]",
+    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763426047/WhatsApp_Image_2025-11-17_at_6.27.06_PM_1_rvqq4n.jpg",
   },
   {
     title: "Atención a Familias",
     category: "Familia",
     description: "Acompañamiento integral a familias con talleres, orientación y recursos para fortalecer vínculos familiares.",
-    image: "[IMG_PROG_6]",
+    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763426540/Captura_de_pantalla_2025-11-17_184124_ayn9sh.png",
   },
 ];
 
@@ -53,7 +41,7 @@ export const ProgramsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {programs.map((program, index) => (
             <article
               key={program.title}
@@ -61,9 +49,11 @@ export const ProgramsSection = () => {
               style={{ animationDelay: `${index * 100}ms`, opacity: 0, animationFillMode: "forwards" }}
             >
               <div className="aspect-[4/3] bg-muted relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm">
-                  {program.image}
-                </div>
+                <img 
+                  src={program.image} 
+                  alt={program.title}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute top-4 left-4">
                   <span className="px-3 py-1 bg-gradient-primary text-white text-sm font-medium rounded-full">
                     {program.category}
