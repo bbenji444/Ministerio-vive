@@ -39,7 +39,7 @@ export const Header = () => {
             <img
               src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026692/WhatsApp_Image_2025-11-13_at_2.57.21_AM_krwcte.jpg"
               alt="Ministerio Vive A.C. Logo"
-              className="h-20 w-auto"
+              className="h-28 w-auto"
             />
           </NavLink>
 
@@ -55,12 +55,6 @@ export const Header = () => {
                 {item.name}
               </NavLink>
             ))}
-            <Button
-              asChild
-              className="ml-2 bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-primary"
-            >
-              <NavLink to="/donar">Dona ahora</NavLink>
-            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -93,17 +87,27 @@ export const Header = () => {
                   {item.name}
                 </NavLink>
               ))}
-              <Button
-                asChild
-                className="mt-2 bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-primary"
-              >
-                <NavLink to="/donar" onClick={() => setIsMobileMenuOpen(false)}>
-                  Dona ahora
-                </NavLink>
-              </Button>
             </div>
           </nav>
         )}
+      </div>
+
+      {/* Donation Banner - Below Header */}
+      <div className="fixed top-20 lg:top-28 left-0 right-0 z-40 bg-gradient-to-r from-primary/10 to-secondary/10 backdrop-blur-sm border-b border-border">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex items-center justify-center gap-4">
+            <span className="text-sm md:text-base font-medium text-foreground">
+              Que tu ayuda cambie vidas
+            </span>
+            <Button
+              asChild
+              size="sm"
+              className="bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-primary"
+            >
+              <NavLink to="/donar">Dona ahora</NavLink>
+            </Button>
+          </div>
+        </div>
       </div>
     </header>
   );
