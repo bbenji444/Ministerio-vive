@@ -33,7 +33,7 @@ export const Header = () => {
       </a>
 
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-32">
           {/* Logo */}
           <NavLink to="/" className="flex-shrink-0" aria-label="Ministerio Vive A.C. - Inicio">
             <img
@@ -93,10 +93,10 @@ export const Header = () => {
       </div>
 
       {/* Donation Banner - Below Header */}
-      <div className="fixed top-20 lg:top-28 left-0 right-0 z-40 bg-gradient-to-r from-primary/10 to-secondary/10 backdrop-blur-sm border-b border-border">
+      <div className="fixed top-32 left-0 right-0 z-40 bg-gradient-to-r from-primary/90 to-secondary/90 border-b border-border">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-center gap-4">
-            <span className="text-sm md:text-base font-medium text-foreground">
+            <span className="text-base md:text-lg font-bold text-white">
               Que tu ayuda cambie vidas
             </span>
             <Button
