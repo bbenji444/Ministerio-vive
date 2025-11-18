@@ -6,7 +6,8 @@ import { NavLink } from "@/components/NavLink";
 const navigation = [
   { name: "Inicio", href: "/" },
   { name: "Nosotros", href: "/nosotros" },
-  { name: "Contacto", href: "/contacto" },
+  { name: "Historias de Éxito", href: "/historias-exito" },
+  { name: "Contacto", href: "#contact-section", isScroll: true },
 ];
 
 export const Header = () => {
@@ -35,7 +36,11 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-32">
           {/* Logo */}
-          <NavLink to="/" className="flex-shrink-0" aria-label="Ministerio Vive A.C. - Inicio">
+          <NavLink 
+            to="/" 
+            className="flex-shrink-0 cursor-pointer hover:opacity-90 transition-opacity" 
+            aria-label="Ministerio Vive A.C. - Inicio"
+          >
             <img
               src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026692/WhatsApp_Image_2025-11-13_at_2.57.21_AM_krwcte.jpg"
               alt="Ministerio Vive A.C. Logo"
@@ -45,16 +50,31 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2" role="navigation" aria-label="Navegación principal">
-            {navigation.map((item) => (
-              <NavLink
-                key={item.name}
-                to={item.href}
-                className="px-3 xl:px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors rounded-md hover:bg-muted"
-                activeClassName="text-primary bg-muted"
-              >
-                {item.name}
-              </NavLink>
-            ))}
+            {navigation.map((item) => 
+              item.isScroll ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.querySelector(item.href);
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-3 xl:px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors rounded-md hover:bg-muted cursor-pointer"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <NavLink
+                  key={item.name}
+                  to={item.href}
+                  className="px-3 xl:px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors rounded-md hover:bg-muted"
+                  activeClassName="text-primary bg-muted"
+                >
+                  {item.name}
+                </NavLink>
+              )
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -76,17 +96,33 @@ export const Header = () => {
             aria-label="Navegación móvil"
           >
             <div className="flex flex-col gap-2 pt-4">
-              {navigation.map((item) => (
-                <NavLink
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-4 py-3 text-base font-medium text-foreground/80 hover:text-primary transition-colors rounded-md hover:bg-muted"
-                  activeClassName="text-primary bg-muted"
-                >
-                  {item.name}
-                </NavLink>
-              ))}
+              {navigation.map((item) => 
+                item.isScroll ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMobileMenuOpen(false);
+                      const element = document.querySelector(item.href);
+                      element?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="px-4 py-3 text-base font-medium text-foreground/80 hover:text-primary transition-colors rounded-md hover:bg-muted cursor-pointer"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <NavLink
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="px-4 py-3 text-base font-medium text-foreground/80 hover:text-primary transition-colors rounded-md hover:bg-muted"
+                    activeClassName="text-primary bg-muted"
+                  >
+                    {item.name}
+                  </NavLink>
+                )
+              )}
             </div>
           </nav>
         )}
@@ -102,7 +138,7 @@ export const Header = () => {
             <Button
               asChild
               size="sm"
-              className="bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-primary"
+              className="bg-white text-primary hover:bg-white/90 font-bold shadow-lg"
             >
               <NavLink to="/donar">Dona ahora</NavLink>
             </Button>

@@ -1,9 +1,11 @@
 import { Header } from "@/components/Header";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { AboutSection } from "@/components/AboutSection";
 import { MissionSection } from "@/components/MissionSection";
 import { ProgramsSection } from "@/components/ProgramsSection";
 import { ImpactSection } from "@/components/ImpactSection";
 import { Footer } from "@/components/Footer";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -11,11 +13,13 @@ const Index = () => {
       <Header />
       <main id="main-content">
         <HeroCarousel />
+        <AboutSection />
         <MissionSection />
         <ProgramsSection />
         <ImpactSection />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
