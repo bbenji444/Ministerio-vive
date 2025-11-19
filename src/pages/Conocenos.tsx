@@ -8,24 +8,24 @@ const Conocenos = () => {
       <Header />
       <main id="main-content" className="pt-44">
         {/* Hero Section */}
-        <section className="relative w-full">
-          <div className="grid md:grid-cols-2 gap-0 items-center">
-            <div className="bg-gradient-to-r from-primary to-secondary p-12 md:p-16 min-h-[300px] flex items-center">
-              <div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+        <section className="relative w-full bg-muted">
+          <div className="container mx-auto px-4 py-12">
+            <div className="grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
+              <div className="bg-gradient-to-r from-primary to-secondary p-8 md:p-12 rounded-xl shadow-lg">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                   Conócenos
                 </h1>
-                <p className="text-white/90 text-lg leading-relaxed">
+                <p className="text-white/90 text-base md:text-lg leading-relaxed">
                   Conoce nuestra labor y el impacto que generamos en las comunidades.
                 </p>
               </div>
-            </div>
-            <div className="h-[300px] md:h-full">
-              <img
-                src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763449994/WhatsApp_Image_2025-11-18_at_1.00.49_AM_kyoryk.jpg"
-                alt="Ministerio Vive - Conócenos"
-                className="w-full h-full object-cover"
-              />
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <img
+                  src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763449994/WhatsApp_Image_2025-11-18_at_1.00.49_AM_kyoryk.jpg"
+                  alt="Ministerio Vive - Conócenos"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -131,15 +131,15 @@ const Conocenos = () => {
               {/* Image Gallery */}
               <div className="mt-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">
-                  Nuestro Trabajo en Imágenes
+                  Transformando Vidas con Amor y Dedicación
                 </h2>
                 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-3 gap-6">
                   <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
                     <img
                       src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763449996/WhatsApp_Image_2025-11-18_at_1.05.15_AM_qlqpaz.jpg"
                       alt="Actividades comunitarias"
-                      className="w-full h-[400px] object-cover"
+                      className="w-full h-[350px] object-cover"
                     />
                   </div>
                   
@@ -147,7 +147,7 @@ const Conocenos = () => {
                     <img
                       src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763426047/WhatsApp_Image_2025-11-17_at_6.28.12_PM_bmiysy.jpg"
                       alt="Niños en programas educativos"
-                      className="w-full h-[400px] object-cover"
+                      className="w-full h-[350px] object-cover"
                     />
                   </div>
                   
@@ -155,7 +155,7 @@ const Conocenos = () => {
                     <img
                       src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763450714/recreacion_y_deporte_foto_uddhoh.jpg"
                       alt="Recreación y deporte"
-                      className="w-full h-[400px] object-cover"
+                      className="w-full h-[350px] object-cover"
                     />
                   </div>
                   
@@ -163,7 +163,23 @@ const Conocenos = () => {
                     <img
                       src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763450297/WhatsApp_Image_2025-11-18_at_1.17.53_AM_r1wphp.jpg"
                       alt="Salud mental y física"
-                      className="w-full h-[400px] object-cover object-[center_30%]"
+                      className="w-full h-[350px] object-cover object-[center_30%]"
+                    />
+                  </div>
+
+                  <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
+                    <img
+                      src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026693/WhatsApp_Image_2025-11-13_at_2.50.05_AM_3_jgdgm8.jpg"
+                      alt="Apoyo a la comunidad"
+                      className="w-full h-[350px] object-cover"
+                    />
+                  </div>
+
+                  <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
+                    <img
+                      src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763450991/dibujando_oxjw8g.jpg"
+                      alt="Actividades creativas"
+                      className="w-full h-[350px] object-cover"
                     />
                   </div>
                 </div>
