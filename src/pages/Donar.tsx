@@ -10,16 +10,25 @@ const Donar = () => {
       <Header />
       <main id="main-content" className="pt-44">
         {/* Hero Section */}
-        <section className="relative h-[400px] w-full overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-            <div className="text-center px-4">
-              <Heart className="w-16 h-16 text-white mx-auto mb-4" />
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-                Dona Ahora
-              </h1>
-              <p className="text-xl md:text-2xl text-white/90">
-                Que tu ayuda cambie vidas
-              </p>
+        <section className="relative w-full bg-muted">
+          <div className="container mx-auto px-4 py-12">
+            <div className="grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
+              <div className="bg-gradient-to-r from-primary to-secondary p-8 md:p-12 rounded-xl shadow-lg">
+                <Heart className="w-12 h-12 text-white mb-4" />
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+                  Dona Ahora
+                </h1>
+                <p className="text-white/90 text-base md:text-lg leading-relaxed">
+                  Que tu ayuda cambie vidas
+                </p>
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <img
+                  src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763450424/educacion_y_cultura_olvl5y.png"
+                  alt="Educación y Cultura - Ministerio Vive"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -46,11 +55,22 @@ const Donar = () => {
                   <p className="text-foreground/80 mb-6">
                     Realiza tu donación de forma segura mediante transferencia bancaria o depósito.
                   </p>
-                  <div className="bg-muted p-4 rounded-lg">
-                    <p className="font-semibold text-foreground mb-2">Datos Bancarios:</p>
-                    <p className="text-sm text-foreground/80">
-                      Próximamente disponibles. Contacta con nosotros para más información.
-                    </p>
+                  <div className="bg-muted p-4 rounded-lg space-y-2">
+                    <p className="font-semibold text-foreground mb-3">Datos Bancarios:</p>
+                    <div className="space-y-1">
+                      <p className="text-sm text-foreground/90">
+                        <span className="font-medium">Banco:</span> Santander
+                      </p>
+                      <p className="text-sm text-foreground/90">
+                        <span className="font-medium">Beneficiario:</span> Ministerio Vive
+                      </p>
+                      <p className="text-sm text-foreground/90">
+                        <span className="font-medium">Cuenta:</span> 65-5016 5717-4
+                      </p>
+                      <p className="text-sm text-foreground/90">
+                        <span className="font-medium">Clave:</span> 014180655016571745
+                      </p>
+                    </div>
                   </div>
                 </Card>
 

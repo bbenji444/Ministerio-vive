@@ -72,6 +72,7 @@ export const Header = () => {
                 <NavLink
                   key={item.name}
                   to={item.href}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className="px-3 xl:px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors rounded-md hover:bg-muted"
                   activeClassName="text-primary bg-muted"
                 >
@@ -119,7 +120,10 @@ export const Header = () => {
                   <NavLink
                     key={item.name}
                     to={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                      setIsMobileMenuOpen(false);
+                    }}
                     className="px-4 py-3 text-base font-medium text-foreground/80 hover:text-primary transition-colors rounded-md hover:bg-muted"
                     activeClassName="text-primary bg-muted"
                   >
@@ -144,7 +148,9 @@ export const Header = () => {
               size="sm"
               className="bg-white text-primary hover:bg-white/90 font-bold shadow-lg"
             >
-              <NavLink to="/donar">Dona ahora</NavLink>
+              <NavLink to="/donar" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                Dona ahora
+              </NavLink>
             </Button>
           </div>
         </div>
