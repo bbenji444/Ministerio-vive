@@ -58,6 +58,7 @@ export const HeroCarousel = () => {
             src={slide.image}
             alt={slide.alt}
             className="w-full h-full object-cover"
+            style={index === 1 ? { objectPosition: 'center 35%' } : {}}
             loading={index === 0 ? "eager" : "lazy"}
           />
           <div className="absolute inset-0 bg-gradient-hero" />
@@ -80,7 +81,7 @@ export const HeroCarousel = () => {
                 className="bg-white text-primary hover:bg-white/90 shadow-xl text-base sm:text-lg px-8"
                 asChild
               >
-                <a href="/nosotros">Conócenos</a>
+                <a href="/conocenos">Conócenos</a>
               </Button>
               <Button
                 size="lg"

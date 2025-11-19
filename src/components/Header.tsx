@@ -5,6 +5,7 @@ import { NavLink } from "@/components/NavLink";
 
 const navigation = [
   { name: "Inicio", href: "/" },
+  { name: "Conócenos", href: "/conocenos" },
   { name: "Nosotros", href: "/nosotros" },
   { name: "Historias de Éxito", href: "/historias-exito" },
   { name: "Contacto", href: "#contact-section", isScroll: true },
@@ -40,6 +41,9 @@ export const Header = () => {
             to="/" 
             className="flex-shrink-0 cursor-pointer hover:opacity-90 transition-opacity" 
             aria-label="Ministerio Vive A.C. - Inicio"
+            onClick={(e) => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
           >
             <img
               src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026692/WhatsApp_Image_2025-11-13_at_2.57.21_AM_krwcte.jpg"
