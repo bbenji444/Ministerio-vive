@@ -7,24 +7,24 @@ const Nosotros = () => {
       <Header />
       <main id="main-content" className="pt-44">
         {/* Hero Image Section */}
-        <section className="relative w-full">
-          <div className="grid md:grid-cols-2 gap-0 items-center">
-            <div className="bg-gradient-to-r from-primary to-secondary p-12 md:p-16 min-h-[400px] flex items-center">
-              <div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+        <section className="relative w-full bg-muted">
+          <div className="container mx-auto px-4 py-12">
+            <div className="grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
+              <div className="bg-gradient-to-r from-primary to-secondary p-8 md:p-12 rounded-xl shadow-lg">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                   Nuestra Historia
                 </h1>
-                <p className="text-white/90 text-lg leading-relaxed">
+                <p className="text-white/90 text-base md:text-lg leading-relaxed">
                   Transformando vidas desde 1999 en las comunidades de Clara Córdova y Los Jarros.
                 </p>
               </div>
-            </div>
-            <div className="h-[400px] md:h-full">
-              <img
-                src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763449994/WhatsApp_Image_2025-11-18_at_1.07.07_AM_w4uqvk.jpg"
-                alt="Ministerio Vive - Nosotros"
-                className="w-full h-full object-cover"
-              />
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <img
+                  src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763449994/WhatsApp_Image_2025-11-18_at_1.07.07_AM_w4uqvk.jpg"
+                  alt="Ministerio Vive - Nosotros"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
             </div>
           </div>
         </section>

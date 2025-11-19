@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 
 const programs = [
   {
@@ -61,26 +59,17 @@ export const ProgramsSection = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold mb-3 text-foreground">
                   {program.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   {program.description}
                 </p>
-                <Button variant="ghost" className="group/btn p-0 h-auto text-primary hover:bg-transparent">
-                  Ver programa
-                  <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                </Button>
               </div>
             </article>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-primary" asChild>
-            <a href="/programas">Ver todos los programas</a>
-          </Button>
-        </div>
       </div>
     </section>
   );

@@ -8,16 +8,25 @@ const Conocenos = () => {
       <Header />
       <main id="main-content" className="pt-44">
         {/* Hero Section */}
-        <section className="relative h-[400px] w-full overflow-hidden">
-          <img
-            src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763449994/WhatsApp_Image_2025-11-18_at_1.00.49_AM_kyoryk.jpg"
-            alt="Ministerio Vive - Conócenos"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/60 flex items-center justify-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center px-4">
-              Conócenos
-            </h1>
+        <section className="relative w-full">
+          <div className="grid md:grid-cols-2 gap-0 items-center">
+            <div className="bg-gradient-to-r from-primary to-secondary p-12 md:p-16 min-h-[300px] flex items-center">
+              <div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                  Conócenos
+                </h1>
+                <p className="text-white/90 text-lg leading-relaxed">
+                  Conoce nuestra labor y el impacto que generamos en las comunidades.
+                </p>
+              </div>
+            </div>
+            <div className="h-[300px] md:h-full">
+              <img
+                src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763449994/WhatsApp_Image_2025-11-18_at_1.00.49_AM_kyoryk.jpg"
+                alt="Ministerio Vive - Conócenos"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </section>
 
@@ -154,7 +163,7 @@ const Conocenos = () => {
                     <img
                       src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763450297/WhatsApp_Image_2025-11-18_at_1.17.53_AM_r1wphp.jpg"
                       alt="Salud mental y física"
-                      className="w-full h-[400px] object-cover"
+                      className="w-full h-[400px] object-cover object-[center_30%]"
                     />
                   </div>
                 </div>

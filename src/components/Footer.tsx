@@ -5,14 +5,11 @@ import { Input } from "@/components/ui/input";
 const navigation = {
   main: [
     { name: "Nosotros", href: "/nosotros" },
-    { name: "Programas", href: "/programas" },
-    { name: "Involúcrate", href: "/involucrate" },
-    { name: "Noticias", href: "/noticias" },
-    { name: "Contacto", href: "/contacto" },
+    { name: "Conocenos", href: "/conocenos" },
+    { name: "Historias de Éxito", href: "/historias-exito" },
+    { name: "Donar", href: "/donar" },
   ],
   legal: [
-    { name: "Aviso de Privacidad", href: "/privacidad" },
-    { name: "Política de Cookies", href: "/cookies" },
     { name: "Transparencia", href: "/transparencia" },
   ],
   social: [
@@ -47,7 +44,7 @@ export const Footer = () => {
               <img
                 src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026692/WhatsApp_Image_2025-11-13_at_2.57.21_AM_krwcte.jpg"
                 alt="Ministerio Vive A.C."
-                className="h-16 w-auto mb-4 brightness-0 invert"
+                className="h-24 w-auto mb-4 brightness-0 invert"
               />
             </a>
             <p className="text-background/80 text-sm leading-relaxed mb-4">
@@ -104,33 +101,24 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Location Map */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Mantente Informado</h3>
+            <h3 className="font-bold text-lg mb-4">Encuéntranos</h3>
             <p className="text-sm text-background/80 mb-4">
-              Recibe noticias sobre nuestro trabajo y cómo puedes ayudar.
+              Visítanos en nuestra oficina de Tepozán
             </p>
-            <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-              <Input
-                type="email"
-                placeholder="Tu correo electrónico"
-                required
-                className="bg-background/10 border-background/20 text-background placeholder:text-background/50"
-                aria-label="Correo electrónico para newsletter"
+            <div className="rounded-lg overflow-hidden shadow-lg h-[200px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.0!2d-99.2!3d19.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDMwJzAwLjAiTiA5OcKwMTInMDAuMCJX!5e0!3m2!1ses!2smx!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación Ministerio Vive"
               />
-              <Button
-                type="submit"
-                className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90"
-              >
-                Suscribirme
-              </Button>
-              <p className="text-xs text-background/60">
-                Al suscribirte, aceptas nuestra{" "}
-                <a href="/privacidad" className="underline hover:text-primary">
-                  política de privacidad
-                </a>
-              </p>
-            </form>
+            </div>
           </div>
         </div>
 
