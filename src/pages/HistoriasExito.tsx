@@ -84,6 +84,19 @@ const HistoriasExito = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">
                 La Historia de Francisca
               </h2>
+
+              <div className="mb-8 flex justify-center">
+                <Card className="overflow-hidden max-w-md">
+                  <img
+                    src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763449996/francisca_bua1sl.png"
+                    alt="Francisca"
+                    className="w-full h-auto"
+                  />
+                  <div className="p-4 bg-background">
+                    <p className="text-center font-semibold text-foreground">Francisca</p>
+                  </div>
+                </Card>
+              </div>
               
               <div className="bg-muted p-8 rounded-lg">
                 <p className="text-foreground/80 leading-relaxed">

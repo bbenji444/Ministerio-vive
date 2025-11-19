@@ -16,9 +16,9 @@ const navigation = {
     { name: "Transparencia", href: "/transparencia" },
   ],
   social: [
-    { name: "Facebook", href: "#", icon: Facebook },
-    { name: "Instagram", href: "#", icon: Instagram },
-    { name: "YouTube", href: "#", icon: Youtube },
+    { name: "Facebook", href: "https://www.facebook.com/ACMINISTERIOVIVE", icon: Facebook },
+    { name: "Instagram", href: "https://www.instagram.com/ministerioviveac?igsh=MTFtYXBtNXpsbXZ5eA==", icon: Instagram },
+    { name: "YouTube", href: "https://www.youtube.com/@ministeriovive8828", icon: Youtube },
   ],
 };
 
@@ -29,17 +29,27 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-foreground text-background" role="contentinfo">
+    <footer className="bg-foreground text-background" role="contentinfo" id="contact-section">
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <img
-              src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026692/WhatsApp_Image_2025-11-13_at_2.57.21_AM_krwcte.jpg"
-              alt="Ministerio Vive A.C."
-              className="h-16 w-auto mb-4 brightness-0 invert"
-            />
+            <a 
+              href="/" 
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.location.href = '/';
+              }}
+              className="block w-fit cursor-pointer hover:opacity-90 transition-opacity"
+            >
+              <img
+                src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026692/WhatsApp_Image_2025-11-13_at_2.57.21_AM_krwcte.jpg"
+                alt="Ministerio Vive A.C."
+                className="h-16 w-auto mb-4 brightness-0 invert"
+              />
+            </a>
             <p className="text-background/80 text-sm leading-relaxed mb-4">
               Salud integral, educación y esperanza para comunidades vulnerables del Estado de México desde 2004.
             </p>
@@ -134,6 +144,8 @@ export const Footer = () => {
                   <a
                     key={item.name}
                     href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="p-2 bg-background/10 hover:bg-primary rounded-full transition-colors"
                     aria-label={item.name}
                   >
