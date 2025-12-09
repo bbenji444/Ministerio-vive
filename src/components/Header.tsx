@@ -7,6 +7,7 @@ const navigation = [
   { name: "Inicio", href: "/" },
   { name: "Conócenos", href: "/conocenos" },
   { name: "Nosotros", href: "/nosotros" },
+  { name: "Nuestros Programas", href: "/#programs-section", isScroll: true },
   { name: "Proyectos Destacados", href: "/proyectos-destacados" },
   { name: "Historias de Éxito", href: "/historias-exito" },
   { name: "Contacto", href: "#contact-section", isScroll: true },

@@ -58,6 +58,7 @@ export const HeroCarousel = () => {
             src={slide.image}
             alt={slide.alt}
             className="w-full h-full object-cover"
+            style={{ objectPosition: index === 1 ? 'center 60%' : index === 2 ? 'center 35%' : 'center' }}
             loading={index === 0 ? "eager" : "lazy"}
           />
           <div className="absolute inset-0 bg-gradient-hero" />
