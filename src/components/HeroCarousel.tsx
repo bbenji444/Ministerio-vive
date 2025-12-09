@@ -8,16 +8,16 @@ const slides = [
     alt: "Jóvenes en talleres de desarrollo",
   },
   {
+    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1764060602/imagen_para_conocenos_1_cwy7gy.png",
+    alt: "Comunidad unida",
+  },
+  {
     image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026693/WhatsApp_Image_2025-11-13_at_2.50.05_AM_5_pondhu.jpg",
     alt: "Familias participando en programas educativos",
   },
   {
     image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026694/WhatsApp_Image_2025-11-13_at_2.50.04_AM_1_r2fbml.jpg",
     alt: "Niños sonriendo en actividades comunitarias",
-  },
-  {
-    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026682/WhatsApp_Image_2025-11-13_at_2.57.21_AM_1_fzkdr4.jpg",
-    alt: "Comunidad reunida en evento",
   },
   {
     image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763026693/WhatsApp_Image_2025-11-13_at_2.50.05_AM_3_jgdgm8.jpg",
@@ -58,7 +58,6 @@ export const HeroCarousel = () => {
             src={slide.image}
             alt={slide.alt}
             className="w-full h-full object-cover"
-            style={index === 1 ? { objectPosition: 'center 35%' } : {}}
             loading={index === 0 ? "eager" : "lazy"}
           />
           <div className="absolute inset-0 bg-gradient-hero" />
