@@ -5,6 +5,7 @@ export interface Program {
   description: string;
   fullDescription: string;
   image: string;
+  imagePosition?: string;
   gallery: string[];
   specialImage?: {
     url: string;
@@ -17,9 +18,10 @@ export const programs: Program[] = [
     id: "recreacion-deporte",
     title: "Recreación y Deporte",
     category: "Recreación",
-    description: "Promovemos hábitos saludables, trabajo en equipo y convivencia comunitaria a través de actividades deportivas y recreativas.",
-    fullDescription: "Promovemos hábitos saludables, trabajo en equipo y convivencia comunitaria a través de actividades deportivas y recreativas. Niños, jóvenes y adultos participan en torneos de fútbol, básquetbol, juegos tradicionales y actividades al aire libre en Los Jarros y Clara Córdova. Estas actividades no solo mejoran su condición física, sino que les brindan un espacio seguro para alejarse de riesgos como la violencia y las adicciones. Organizamos eventos deportivos donde las familias se unen, fortaleciendo lazos comunitarios y fomentando valores como el respeto, la disciplina y el compañerismo. El deporte es nuestra herramienta para construir una comunidad más sana y unida.",
+    description: "Promovemos hábitos saludables, trabajo en equipo y convivencia comunitaria a través de actividades deportivas, recreativas y creativas.",
+    fullDescription: "Promovemos hábitos saludables, trabajo en equipo y convivencia comunitaria a través de actividades deportivas, recreativas y creativas. Niños, jóvenes y adultos participan en torneos de fútbol, básquetbol, juegos tradicionales y actividades al aire libre en Los Jarros y Clara Córdova. Además, desarrollamos talleres de manualidades, dibujo, pintura y arte donde los participantes expresan su creatividad y descubren nuevos talentos. Nuestro club de ajedrez ha sido una herramienta fundamental para desarrollar el pensamiento estratégico, la concentración y la toma de decisiones en los niños y jóvenes, ayudándoles a mejorar su rendimiento escolar y a enfrentar los desafíos diarios con mayor claridad mental. Estas actividades no solo mejoran su condición física y habilidades artísticas, sino que les brindan un espacio seguro para alejarse de riesgos como la violencia y las adicciones. Organizamos eventos recreativos donde las familias se unen, fortaleciendo lazos comunitarios y fomentando valores como el respeto, la disciplina y el compañerismo. El deporte, el arte, el ajedrez y la recreación son nuestras herramientas para construir una comunidad más sana, creativa y unida.",
     image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763426047/WhatsApp_Image_2025-11-17_at_6.27.06_PM_1_rvqq4n.jpg",
+    imagePosition: "center 30%",
     gallery: [
       "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797128/WhatsApp_Image_2025-11-20_at_12.13.40_PM_tewqxv.jpg",
       "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797125/WhatsApp_Image_2025-11-20_at_12.29.43_PM_ygihbw.jpg",

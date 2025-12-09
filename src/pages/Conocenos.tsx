@@ -177,8 +177,8 @@ const Conocenos = () => {
 
                   <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
                     <img
-                      src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763450991/dibujando_oxjw8g.jpg"
-                      alt="Actividades creativas"
+                      src="https://res.cloudinary.com/dbfc6h3fr/image/upload/v1764060602/imagen_para_conocenos_1_cwy7gy.png"
+                      alt="Comunidad unida"
                       className="w-full h-[350px] object-cover"
                     />
                   </div>

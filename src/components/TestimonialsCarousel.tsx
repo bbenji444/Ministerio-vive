@@ -5,36 +5,49 @@ const testimonials = [
   {
     name: "Johana Soto",
     role: "Voluntaria y Ex-Prestadora de Servicio Social",
+    photo: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765243251/JOHANA_SOTO_cfb21t.jpg",
     quote: "Buscando maneras de ayudar, llegué a Ministerio Vive. Hice mi servicio social allí y después regresé como voluntaria, junto con mi hijo Patricio. Compartir tiempo con quienes más lo necesitan, especialmente con los niños, me cambió la vida. Incluso ganamos un concurso en Inglaterra por este voluntariado, pero mi mayor logro fue encontrar un segundo hogar."
   },
   {
     name: "Gerardo Mendoza Briseño",
     role: "Miembro del Consejo y Ex-Coordinador",
+    photo: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765243240/GERARDO_MENDOZA_yhd5nu.jpg",
     quote: "Llegué a la asociación para cumplir mi servicio social, pero su labor me atrapó desde el primer día. Con el tiempo me convertí en miembro del consejo y coordiné proyectos que beneficiaron a la comunidad. He sido testigo de historias que inspiran y transforman. Lo que empezó como un requisito se volvió un estilo de vida, porque ser parte de este movimiento social dejó en mí una huella de amor inmensa."
+  },
+  {
+    name: "Benjamín Oviedo",
+    role: "Coordinador de Ministerio Vive",
+    photo: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765243425/WhatsApp_Image_2025-12-08_at_7.09.53_PM_qzrjjf.jpg",
+    quote: "Llegué a Ministerio Vive buscando cumplir con mi servicio social, pero encontré mucho más que eso: descubrí el verdadero valor de la solidaridad. Cada sábado en Los Jarros y Clara Córdova me enseñó que la vida cobra sentido cuando te preocupas genuinamente por los demás."
   },
   {
     name: "Fernando Murguía Izaguirre",
     role: "Voluntario Familiar",
+    photo: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765243233/FERNANDO_MURGUIA_f9w5dn.jpg",
     quote: "Como muchos en la universidad, solo quería terminar mi servicio social, pero nunca imaginé que mi familia y yo nos enamoraríamos de esta labor comunitaria. Compartimos conocimientos, dimos clases y apoyamos de mil maneras para que este trabajo siguiera adelante. Hoy sabemos que ayudar también transforma nuestro propio hogar."
   },
   {
     name: "Izcaret García",
     role: "Psicóloga y Consultora",
+    photo: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765243244/IZCARET_GARCIA_FLORES_fo3c6y.jpg",
     quote: "Poner en práctica mis conocimientos de psicología para ayudar a las personas de Ministerio Vive fue una experiencia que enriqueció cada aspecto de mi vida. Impartir cursos a quienes no tienen acceso a educación o empleo marcó el inicio de mi crecimiento profesional. Hoy cuento con una consultoría de orientación laboral, y Ministerio Vive sigue siendo —y será siempre— mi lugar favorito para apoyar a quien lo necesite."
   },
   {
     name: "María del Carmen Ramírez",
     role: "Voluntaria y Donadora",
+    photo: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765243255/MARIA_DEL_CARMEN_s5bel4.jpg",
     quote: "Es indescriptible ver la mirada de los niños y las sonrisas de la gente en las comunidades. Soy voluntaria y donadora, y siempre que puedo —a veces junto con amigos— llevo ropa, juguetes y todo lo que esté a mi alcance. Nunca me cansaré de dar y de amar. He visto cómo un pequeño gesto puede cambiar la vida de alguien, y eso, como sabemos, no tiene precio."
   },
   {
     name: "Rafael Aguirre",
     role: "Fundador y Colaborador",
+    photo: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765243259/RAFAEL_AGUIRRE_l7j4gf.jpg",
     quote: "Fui testigo y parte de los inicios de Ministerio Vive. Hoy solo puedo agradecer a Dios por permitirme ver cómo este trabajo sigue creciendo y llegando a más personas. Desde mi labor pude aportar recursos para construir el centro en una de las comunidades y siempre procuré apoyar con todo lo que estaba a mi alcance. Ver que la misión continúa es, para mí, la mayor recompensa."
   },
   {
     name: "Susana Carreón Vázquez",
     role: "Madrina de Becarias",
+    photo: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765243263/SUSANA_CARRERON_VAZQUEZ_dfx2mn.jpg",
     quote: "Ser voluntaria ha sido una experiencia inolvidable. Dar clases en la Ludoteca me renovó como persona; convivir con los más pequeños me llenó de la alegría de dar sin condición y de ser yo misma sin miedo. Hoy soy madrina de dos universitarias, y apoyarlas económicamente no solo les abre un futuro más brillante, también les siembra la certeza de que ayudar a otros es el mejor legado que podemos dejar en el mundo."
   }
 ];
@@ -72,7 +85,7 @@ export const TestimonialsCarousel = () => {
 
   useEffect(() => {
     if (!isAutoPlaying) return;
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 15000);
     return () => clearInterval(interval);
   }, [isAutoPlaying, nextSlide]);
 
@@ -139,9 +152,11 @@ export const TestimonialsCarousel = () => {
 
                     {/* Author */}
                     <div className="flex items-center gap-4 pt-6 border-t border-border">
-                      <div className="w-14 h-14 rounded-full bg-gradient-primary flex items-center justify-center shadow-lg">
-                        <User className="w-7 h-7 text-white" />
-                      </div>
+                      <img 
+                        src={testimonial.photo} 
+                        alt={testimonial.name}
+                        className="w-14 h-14 rounded-full object-cover shadow-lg"
+                      />
                       <div>
                         <h4 className="font-bold text-foreground">{testimonial.name}</h4>
                         <p className="text-sm text-muted-foreground">{testimonial.role}</p>

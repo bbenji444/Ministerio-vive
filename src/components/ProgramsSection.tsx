@@ -3,7 +3,7 @@ import { programs } from "@/data/programsData";
 
 export const ProgramsSection = () => {
   return (
-    <section className="py-20 bg-background" aria-labelledby="programs-heading">
+    <section id="programs-section" className="py-20 bg-background" aria-labelledby="programs-heading">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 id="programs-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
@@ -31,6 +31,7 @@ export const ProgramsSection = () => {
                     src={program.image} 
                     alt={program.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    style={{ objectPosition: program.imagePosition || 'center' }}
                   />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-gradient-primary text-white text-sm font-medium rounded-full">
