@@ -74,6 +74,7 @@ export const programs: Program[] = [
     fullDescription: "En nuestros talleres de gastronomía, jóvenes y adultos aprenden técnicas culinarias que se convierten en oportunidades de empleo y emprendimiento. Enseñamos desde preparación de alimentos básicos hasta repostería, panadería y creación de productos artesanales. Este programa forma parte de nuestro proyecto \"Las Delicias de Jarros\", donde elaboramos salsas, mermeladas, postres y conservas utilizando productos del campo local como chiles y peras. Los participantes desarrollan habilidades que pueden convertir en un negocio propio o en ingresos adicionales para sus familias. Más que cocinar, estamos construyendo autonomía económica y dignidad laboral que transforma la vida de familias completas.",
     image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797024/WhatsApp_Image_2025-11-20_at_12.09.10_PM_rjhnkh.jpg",
     gallery: [
+      "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765244187/WhatsApp_Image_2025-11-20_at_12.29.41_PM_durxmx.jpg",
       "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797120/WhatsApp_Image_2025-11-20_at_12.29.42_PM_1_myf3zq.jpg",
       "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797118/WhatsApp_Image_2025-11-20_at_12.29.42_PM_2_lklwdl.jpg",
       "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797116/WhatsApp_Image_2025-11-20_at_12.29.42_PM_3_kuyq9q.jpg",
@@ -92,9 +93,9 @@ export const programs: Program[] = [
     description: "Transformamos un terreno sin uso en un huerto comunitario que alimenta familias y enseña sustentabilidad.",
     fullDescription: "En la comunidad de Los Jarros, transformamos un terreno sin uso en un huerto comunitario que hoy alimenta familias y enseña sustentabilidad. Jóvenes, adultos y niños aprenden técnicas de siembra, cuidado de cultivos, cosecha y aprovechamiento de recursos naturales. Cultivamos verduras, hortalizas y hierbas aromáticas que las familias llevan a sus hogares, reduciendo sus gastos en alimentos y mejorando su nutrición. Este proyecto no solo provee comida fresca y saludable, sino que enseña el valor del trabajo colectivo, la paciencia y el cuidado del medio ambiente. Algunos miembros de la comunidad han comenzado a vender sus excedentes en mercados locales, generando ingresos extras. De la tierra árida surgió abundancia; de las manos vacías, nacieron semillas de esperanza y autosuficiencia.",
     image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797057/WhatsApp_Image_2025-11-20_at_12.13.44_PM_1_jf1ua9.jpg",
-    specialImage: {
+  specialImage: {
       url: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797081/WhatsApp_Image_2025-11-20_at_12.14.47_PM_2_yx68se.jpg",
-      caption: "Ingeniero Agrónomo Ubaldo - Encargado del proyecto"
+      caption: "Ingeniero Agrónomo Ubaldo Velásquez Esquivel - Encargado del proyecto"
     },
     gallery: [
       "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797109/WhatsApp_Image_2025-11-20_at_12.17.56_PM_1_rths4k.jpg",

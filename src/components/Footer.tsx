@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Music2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -13,6 +13,7 @@ const navigation = {
     { name: "Facebook", href: "https://www.facebook.com/ACMINISTERIOVIVE", icon: Facebook },
     { name: "Instagram", href: "https://www.instagram.com/ministerioviveac?igsh=MTFtYXBtNXpsbXZ5eA==", icon: Instagram },
     { name: "YouTube", href: "https://www.youtube.com/@ministeriovive8828", icon: Youtube },
+    { name: "TikTok", href: "https://www.tiktok.com/@ministerio_vive_proyect0?_r=1&_t=ZS-9249WAXgnkg", icon: null },
   ],
 };
 
@@ -124,7 +125,7 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex gap-4">
               {navigation.social.map((item) => {
-                const Icon = item.icon;
+                const Icon = item.icon || Music2;
                 return (
                   <a
                     key={item.name}
