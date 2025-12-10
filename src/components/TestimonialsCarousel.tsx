@@ -15,10 +15,10 @@ const testimonials = [
     quote: "Llegué a la asociación para cumplir mi servicio social, pero su labor me atrapó desde el primer día. Con el tiempo me convertí en miembro del consejo y coordiné proyectos que beneficiaron a la comunidad. He sido testigo de historias que inspiran y transforman. Lo que empezó como un requisito se volvió un estilo de vida, porque ser parte de este movimiento social dejó en mí una huella de amor inmensa."
   },
   {
-    name: "Benjamín Oviedo",
+    name: "Benjamin Oviedo",
     role: "Coordinador de Ministerio Vive",
     photo: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765243425/WhatsApp_Image_2025-12-08_at_7.09.53_PM_qzrjjf.jpg",
-    quote: "Llegué a Ministerio Vive buscando cumplir con mi servicio social, pero encontré mucho más que eso: descubrí el verdadero valor de la solidaridad. Cada sábado en Los Jarros y Clara Córdova me enseñó que la vida cobra sentido cuando te preocupas genuinamente por los demás."
+    quote: "Llegué a Ministerio Vive buscando cumplir con mi servicio social, pero encontré una misión que transformó mi perspectiva de vida. Cada sábado en Los Jarros me enseñó que el verdadero liderazgo se construye en el servicio a quienes más lo necesitan. He descubierto que no hay manera de pasar de lo ordinario a lo extraordinario si no te preocupas por los demás. Ver el impacto real de nuestras acciones me mostró que el éxito más valioso es aquel que construyes mientras ayudas a otros a alcanzar el suyo. Esta experiencia no solo cumplió un requisito académico, definió quién quiero ser como profesionista y como ser humano."
   },
   {
     name: "Fernando Murguía Izaguirre",

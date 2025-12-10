@@ -7,10 +7,11 @@ const navigation = [
   { name: "Inicio", href: "/" },
   { name: "Conócenos", href: "/conocenos" },
   { name: "Nosotros", href: "/nosotros" },
-  { name: "Nuestros Programas", href: "/#programs-section", isScroll: true },
+  { name: "Nuestros Programas", href: "/#programs-section", isScroll: true, scrollTarget: "programs-section" },
   { name: "Proyectos Destacados", href: "/proyectos-destacados" },
   { name: "Historias de Éxito", href: "/historias-exito" },
-  { name: "Contacto", href: "#contact-section", isScroll: true },
+  { name: "Noticias", href: "/noticias" },
+  { name: "Contacto", href: "#contact-section", isScroll: true, scrollTarget: "contact-section" },
 ];
 
 export const Header = () => {
@@ -63,8 +64,18 @@ export const Header = () => {
                   href={item.href}
                   onClick={(e) => {
                     e.preventDefault();
-                    const element = document.querySelector(item.href);
-                    element?.scrollIntoView({ behavior: 'smooth' });
+                    if (item.href.startsWith('/#')) {
+                      // Navigate to home first, then scroll
+                      if (window.location.pathname !== '/') {
+                        window.location.href = item.href;
+                      } else {
+                        const element = document.getElementById(item.scrollTarget || '');
+                        element?.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    } else {
+                      const element = document.getElementById(item.scrollTarget || '');
+                      element?.scrollIntoView({ behavior: 'smooth' });
+                    }
                   }}
                   className="px-3 xl:px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors rounded-md hover:bg-muted cursor-pointer"
                 >
@@ -111,8 +122,17 @@ export const Header = () => {
                     onClick={(e) => {
                       e.preventDefault();
                       setIsMobileMenuOpen(false);
-                      const element = document.querySelector(item.href);
-                      element?.scrollIntoView({ behavior: 'smooth' });
+                      if (item.href.startsWith('/#')) {
+                        if (window.location.pathname !== '/') {
+                          window.location.href = item.href;
+                        } else {
+                          const element = document.getElementById(item.scrollTarget || '');
+                          element?.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      } else {
+                        const element = document.getElementById(item.scrollTarget || '');
+                        element?.scrollIntoView({ behavior: 'smooth' });
+                      }
                     }}
                     className="px-4 py-3 text-base font-medium text-foreground/80 hover:text-primary transition-colors rounded-md hover:bg-muted cursor-pointer"
                   >
