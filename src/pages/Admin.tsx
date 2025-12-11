@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
@@ -8,12 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
-import { Plus, Edit, Trash2, LogOut, Eye, EyeOff, Save } from "lucide-react";
+import { Plus, Edit, Trash2, LogOut, Eye, EyeOff, Save, X, Lock } from "lucide-react";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { Session, User } from "@supabase/supabase-js";
+
+const ADMIN_PASSWORD = "Utrilla1956";
 
 interface NewsItem {
   id: string;
@@ -21,22 +20,20 @@ interface NewsItem {
   content: string;
   excerpt: string | null;
   image_url: string | null;
+  images: string[] | null;
   published_at: string | null;
   created_at: string;
   is_published: boolean;
 }
 
 const Admin = () => {
-  const navigate = useNavigate();
-  const [session, setSession] = useState<Session | null>(null);
-  const [user, setUser] = useState<User | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   const [news, setNews] = useState<NewsItem[]>([]);
   const [editingNews, setEditingNews] = useState<NewsItem | null>(null);
   const [isCreating, setIsCreating] = useState(false);
 
-  // Auth form states
-  const [email, setEmail] = useState("");
+  // Auth form state
   const [password, setPassword] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
 
@@ -44,33 +41,19 @@ const Admin = () => {
   const [formTitle, setFormTitle] = useState("");
   const [formContent, setFormContent] = useState("");
   const [formExcerpt, setFormExcerpt] = useState("");
-  const [formImageUrl, setFormImageUrl] = useState("");
+  const [formImages, setFormImages] = useState<string[]>([]);
+  const [newImageUrl, setNewImageUrl] = useState("");
   const [formIsPublished, setFormIsPublished] = useState(true);
 
   useEffect(() => {
-    // Set up auth state listener FIRST
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-      }
-    );
-
-    // THEN check for existing session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  useEffect(() => {
-    if (user) {
+    // Check if already authenticated via sessionStorage
+    const auth = sessionStorage.getItem("ministerio_admin_auth");
+    if (auth === "true") {
+      setIsAuthenticated(true);
       fetchNews();
     }
-  }, [user]);
+    setLoading(false);
+  }, []);
 
   const fetchNews = async () => {
     const { data, error } = await supabase
@@ -79,49 +62,30 @@ const Admin = () => {
       .order("created_at", { ascending: false });
 
     if (!error && data) {
-      setNews(data);
+      setNews(data as NewsItem[]);
     }
   };
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setAuthLoading(true);
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      toast.error("Error al iniciar sesión: " + error.message);
+    if (password === ADMIN_PASSWORD) {
+      sessionStorage.setItem("ministerio_admin_auth", "true");
+      setIsAuthenticated(true);
+      fetchNews();
+      toast.success("¡Bienvenido al panel de administración!");
     } else {
-      toast.success("¡Bienvenido!");
+      toast.error("Contraseña incorrecta");
     }
     setAuthLoading(false);
+    setPassword("");
   };
 
-  const handleSignUp = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setAuthLoading(true);
-
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${window.location.origin}/admin`,
-      },
-    });
-
-    if (error) {
-      toast.error("Error al registrarse: " + error.message);
-    } else {
-      toast.success("¡Registro exitoso! Ya puedes iniciar sesión.");
-    }
-    setAuthLoading(false);
-  };
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
+  const handleLogout = () => {
+    sessionStorage.removeItem("ministerio_admin_auth");
+    setIsAuthenticated(false);
+    setNews([]);
     toast.success("Sesión cerrada");
   };
 
@@ -129,7 +93,8 @@ const Admin = () => {
     setFormTitle("");
     setFormContent("");
     setFormExcerpt("");
-    setFormImageUrl("");
+    setFormImages([]);
+    setNewImageUrl("");
     setFormIsPublished(true);
     setEditingNews(null);
     setIsCreating(false);
@@ -144,10 +109,21 @@ const Admin = () => {
     setFormTitle(item.title);
     setFormContent(item.content);
     setFormExcerpt(item.excerpt || "");
-    setFormImageUrl(item.image_url || "");
+    setFormImages(item.images || (item.image_url ? [item.image_url] : []));
     setFormIsPublished(item.is_published);
     setEditingNews(item);
     setIsCreating(false);
+  };
+
+  const addImage = () => {
+    if (newImageUrl.trim()) {
+      setFormImages([...formImages, newImageUrl.trim()]);
+      setNewImageUrl("");
+    }
+  };
+
+  const removeImage = (index: number) => {
+    setFormImages(formImages.filter((_, i) => i !== index));
   };
 
   const handleSaveNews = async (e: React.FormEvent) => {
@@ -162,14 +138,13 @@ const Admin = () => {
       title: formTitle.trim(),
       content: formContent.trim(),
       excerpt: formExcerpt.trim() || null,
-      image_url: formImageUrl.trim() || null,
+      image_url: formImages[0] || null,
+      images: formImages.length > 0 ? formImages : null,
       is_published: formIsPublished,
       published_at: formIsPublished ? new Date().toISOString() : null,
-      author_id: user?.id,
     };
 
     if (editingNews) {
-      // Update
       const { error } = await supabase
         .from("news")
         .update(newsData)
@@ -183,7 +158,6 @@ const Admin = () => {
         fetchNews();
       }
     } else {
-      // Create
       const { error } = await supabase.from("news").insert(newsData);
 
       if (error) {
@@ -234,8 +208,8 @@ const Admin = () => {
     );
   }
 
-  // Not authenticated - show login form
-  if (!user) {
+  // Not authenticated - show password form
+  if (!isAuthenticated) {
     return (
       <div className="min-h-screen">
         <Header />
@@ -244,85 +218,36 @@ const Admin = () => {
             <div className="max-w-md mx-auto">
               <Card>
                 <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Lock className="w-8 h-8 text-primary" />
+                  </div>
                   <CardTitle className="text-2xl">Panel de Administración</CardTitle>
                   <CardDescription>
-                    Inicia sesión para gestionar las noticias
+                    Ingresa la contraseña para acceder
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Tabs defaultValue="login">
-                    <TabsList className="grid w-full grid-cols-2">
-                      <TabsTrigger value="login">Iniciar Sesión</TabsTrigger>
-                      <TabsTrigger value="register">Registrarse</TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="login">
-                      <form onSubmit={handleLogin} className="space-y-4 mt-4">
-                        <div>
-                          <Label htmlFor="login-email">Correo electrónico</Label>
-                          <Input
-                            id="login-email"
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="admin@ministeriovive.org"
-                            required
-                          />
-                        </div>
-                        <div>
-                          <Label htmlFor="login-password">Contraseña</Label>
-                          <Input
-                            id="login-password"
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="••••••••"
-                            required
-                          />
-                        </div>
-                        <Button
-                          type="submit"
-                          className="w-full bg-gradient-primary"
-                          disabled={authLoading}
-                        >
-                          {authLoading ? "Ingresando..." : "Iniciar Sesión"}
-                        </Button>
-                      </form>
-                    </TabsContent>
-                    <TabsContent value="register">
-                      <form onSubmit={handleSignUp} className="space-y-4 mt-4">
-                        <div>
-                          <Label htmlFor="register-email">Correo electrónico</Label>
-                          <Input
-                            id="register-email"
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="correo@ejemplo.com"
-                            required
-                          />
-                        </div>
-                        <div>
-                          <Label htmlFor="register-password">Contraseña</Label>
-                          <Input
-                            id="register-password"
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Mínimo 6 caracteres"
-                            minLength={6}
-                            required
-                          />
-                        </div>
-                        <Button
-                          type="submit"
-                          className="w-full bg-gradient-primary"
-                          disabled={authLoading}
-                        >
-                          {authLoading ? "Registrando..." : "Crear cuenta"}
-                        </Button>
-                      </form>
-                    </TabsContent>
-                  </Tabs>
+                  <form onSubmit={handleLogin} className="space-y-4">
+                    <div>
+                      <Label htmlFor="password">Contraseña</Label>
+                      <Input
+                        id="password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="••••••••"
+                        required
+                        autoFocus
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      className="w-full bg-gradient-primary"
+                      disabled={authLoading}
+                    >
+                      {authLoading ? "Verificando..." : "Ingresar"}
+                    </Button>
+                  </form>
                 </CardContent>
               </Card>
             </div>
@@ -386,15 +311,44 @@ const Admin = () => {
                           placeholder="Breve descripción"
                         />
                       </div>
+                      
+                      {/* Multiple Images */}
                       <div>
-                        <Label htmlFor="imageUrl">URL de imagen (opcional)</Label>
-                        <Input
-                          id="imageUrl"
-                          value={formImageUrl}
-                          onChange={(e) => setFormImageUrl(e.target.value)}
-                          placeholder="https://..."
-                        />
+                        <Label>Imágenes</Label>
+                        <div className="space-y-2">
+                          {formImages.map((img, index) => (
+                            <div key={index} className="flex items-center gap-2">
+                              <img src={img} alt={`Imagen ${index + 1}`} className="w-16 h-16 object-cover rounded" />
+                              <span className="flex-1 text-sm truncate">{img}</span>
+                              <Button 
+                                type="button" 
+                                size="icon" 
+                                variant="ghost"
+                                onClick={() => removeImage(index)}
+                              >
+                                <X className="w-4 h-4" />
+                              </Button>
+                            </div>
+                          ))}
+                          <div className="flex gap-2">
+                            <Input
+                              value={newImageUrl}
+                              onChange={(e) => setNewImageUrl(e.target.value)}
+                              placeholder="URL de imagen"
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                  e.preventDefault();
+                                  addImage();
+                                }
+                              }}
+                            />
+                            <Button type="button" onClick={addImage} variant="outline">
+                              <Plus className="w-4 h-4" />
+                            </Button>
+                          </div>
+                        </div>
                       </div>
+
                       <div>
                         <Label htmlFor="content">Contenido *</Label>
                         <Textarea
@@ -452,9 +406,9 @@ const Admin = () => {
                           key={item.id}
                           className="flex items-start gap-4 p-4 bg-background rounded-lg border"
                         >
-                          {item.image_url && (
+                          {(item.images?.[0] || item.image_url) && (
                             <img
-                              src={item.image_url}
+                              src={item.images?.[0] || item.image_url || ""}
                               alt={item.title}
                               className="w-20 h-20 object-cover rounded-lg flex-shrink-0"
                             />
@@ -475,9 +429,16 @@ const Admin = () => {
                             <p className="text-sm text-muted-foreground line-clamp-2 mt-1">
                               {item.excerpt || item.content.substring(0, 100)}
                             </p>
-                            <p className="text-xs text-muted-foreground mt-2">
-                              {format(new Date(item.created_at), "dd MMM yyyy", { locale: es })}
-                            </p>
+                            <div className="flex items-center gap-2 mt-2">
+                              <p className="text-xs text-muted-foreground">
+                                {format(new Date(item.created_at), "dd MMM yyyy", { locale: es })}
+                              </p>
+                              {item.images && item.images.length > 1 && (
+                                <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded">
+                                  {item.images.length} imágenes
+                                </span>
+                              )}
+                            </div>
                           </div>
                           <div className="flex gap-2 flex-shrink-0">
                             <Button
