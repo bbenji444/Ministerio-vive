@@ -3,7 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { supabase } from "@/integrations/supabase/client";
-import { Calendar, User, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { Button } from "@/components/ui/button";
 import { format } from "date-fns";
@@ -15,6 +15,7 @@ interface NewsItem {
   content: string;
   excerpt: string | null;
   image_url: string | null;
+  images: string[] | null;
   published_at: string | null;
   created_at: string;
 }
@@ -32,7 +33,7 @@ const Noticias = () => {
         .order("published_at", { ascending: false });
 
       if (!error && data) {
-        setNews(data);
+        setNews(data as NewsItem[]);
       }
       setLoading(false);
     };
@@ -58,7 +59,7 @@ const Noticias = () => {
           </div>
         </section>
 
-        {/* News Grid */}
+        {/* News List */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             {loading ? (
@@ -82,42 +83,96 @@ const Noticias = () => {
                 </div>
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {news.map((item, index) => (
-                  <article
-                    key={item.id}
-                    className="bg-white rounded-2xl shadow-card overflow-hidden hover-lift animate-fade-in-up"
-                    style={{ animationDelay: `${index * 100}ms`, opacity: 0, animationFillMode: "forwards" }}
-                  >
-                    {item.image_url && (
-                      <div className="aspect-video overflow-hidden">
-                        <img
-                          src={item.image_url}
-                          alt={item.title}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                        />
+              <div className="space-y-8">
+                {news.map((item, index) => {
+                  const images = item.images || (item.image_url ? [item.image_url] : []);
+                  
+                  return (
+                    <article
+                      key={item.id}
+                      className="bg-white rounded-2xl shadow-card overflow-hidden hover-lift animate-fade-in-up"
+                      style={{ animationDelay: `${index * 100}ms`, opacity: 0, animationFillMode: "forwards" }}
+                    >
+                      <div className="flex flex-col md:flex-row">
+                        {/* Content on the left */}
+                        <div className="flex-1 p-6 md:p-8">
+                          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                            <span className="flex items-center gap-1">
+                              <Calendar className="w-4 h-4" />
+                              {format(new Date(item.published_at || item.created_at), "dd MMM yyyy", { locale: es })}
+                            </span>
+                          </div>
+                          <h3 className="text-xl md:text-2xl font-bold mb-3">{item.title}</h3>
+                          <p className="text-muted-foreground mb-4 line-clamp-4">
+                            {item.excerpt || item.content.substring(0, 250) + "..."}
+                          </p>
+                          <NavLink 
+                            to={`/noticia/${item.id}`}
+                            className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
+                          >
+                            Leer más <ArrowRight size={16} />
+                          </NavLink>
+                        </div>
+
+                        {/* Images on the right */}
+                        {images.length > 0 && (
+                          <div className="md:w-80 lg:w-96 flex-shrink-0 p-4 md:p-6">
+                            {images.length === 1 ? (
+                              <img
+                                src={images[0]}
+                                alt={item.title}
+                                className="w-full h-48 md:h-full object-cover rounded-xl"
+                              />
+                            ) : images.length === 2 ? (
+                              <div className="grid grid-cols-2 gap-2 h-48 md:h-full">
+                                {images.map((img, idx) => (
+                                  <img
+                                    key={idx}
+                                    src={img}
+                                    alt={`${item.title} - imagen ${idx + 1}`}
+                                    className="w-full h-full object-cover rounded-xl"
+                                  />
+                                ))}
+                              </div>
+                            ) : (
+                              <div className="grid grid-cols-2 gap-2 h-48 md:h-full">
+                                <img
+                                  src={images[0]}
+                                  alt={`${item.title} - imagen 1`}
+                                  className="w-full h-full object-cover rounded-xl row-span-2"
+                                />
+                                <div className="flex flex-col gap-2">
+                                  {images.slice(1, 3).map((img, idx) => (
+                                    <img
+                                      key={idx}
+                                      src={img}
+                                      alt={`${item.title} - imagen ${idx + 2}`}
+                                      className="w-full h-full object-cover rounded-xl flex-1"
+                                    />
+                                  ))}
+                                  {images.length > 3 && (
+                                    <div className="relative">
+                                      <img
+                                        src={images[3]}
+                                        alt={`${item.title} - imagen 4`}
+                                        className="w-full h-full object-cover rounded-xl"
+                                      />
+                                      {images.length > 4 && (
+                                        <div className="absolute inset-0 bg-black/50 rounded-xl flex items-center justify-center">
+                                          <span className="text-white font-bold">+{images.length - 3}</span>
+                                        </div>
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        )}
                       </div>
-                    )}
-                    <div className="p-6">
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          {format(new Date(item.published_at || item.created_at), "dd MMM yyyy", { locale: es })}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-bold mb-3 line-clamp-2">{item.title}</h3>
-                      <p className="text-muted-foreground line-clamp-3 mb-4">
-                        {item.excerpt || item.content.substring(0, 150) + "..."}
-                      </p>
-                      <NavLink 
-                        to={`/noticia/${item.id}`}
-                        className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
-                      >
-                        Leer más <ArrowRight size={16} />
-                      </NavLink>
-                    </div>
-                  </article>
-                ))}
+                    </article>
+                  );
+                })}
               </div>
             )}
           </div>
