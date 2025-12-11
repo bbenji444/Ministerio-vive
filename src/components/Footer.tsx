@@ -63,6 +63,8 @@ export const Footer = () => {
                   <a href="tel:5534135014" className="hover:text-primary transition-colors">55 3413 5014</a>
                   <br />
                   <a href="tel:5527041083" className="hover:text-primary transition-colors">55 2704 1083</a>
+                  <br />
+                  <a href="tel:5553971700" className="hover:text-primary transition-colors">55 5397 1700</a>
                 </div>
               </li>
               <li className="flex items-start gap-2">
@@ -103,7 +105,7 @@ export const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">Encuéntranos</h3>
             <p className="text-sm text-background/80 mb-4">
-              Donaciones en especie e informes en nuestra oficina
+              Ubicación del domicilio fiscal
             </p>
             <div className="rounded-lg overflow-hidden shadow-lg h-[200px]">
               <iframe

@@ -58,7 +58,7 @@ export const HeroCarousel = () => {
             src={slide.image}
             alt={slide.alt}
             className="w-full h-full object-cover"
-            style={{ objectPosition: index === 1 ? 'center 75%' : index === 2 ? 'center 35%' : 'center' }}
+            style={{ objectPosition: index === 1 ? 'center 85%' : index === 2 ? 'center 35%' : 'center' }}
             loading={index === 0 ? "eager" : "lazy"}
           />
           <div className="absolute inset-0 bg-gradient-hero" />
@@ -73,7 +73,7 @@ export const HeroCarousel = () => {
               Ministerio Vive A.C.
             </h1>
             <h2 className="text-xl md:text-2xl lg:text-3xl text-white/95 mb-8 font-sans animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
-              Salud integral, educación y esperanza para niñas, niños y familias en Clara Córdova y Los Jarros
+              Salud integral, educación y esperanza para niñas, niños y familias en Clara Córdova y Los Jarros, Edo. Méx.
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]">
               <Button
