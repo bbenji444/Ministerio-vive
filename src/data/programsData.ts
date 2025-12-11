@@ -95,7 +95,7 @@ export const programs: Program[] = [
     image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797057/WhatsApp_Image_2025-11-20_at_12.13.44_PM_1_jf1ua9.jpg",
   specialImage: {
       url: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797081/WhatsApp_Image_2025-11-20_at_12.14.47_PM_2_yx68se.jpg",
-      caption: "Ingeniero Agrónomo Ubaldo Velásquez Esquivel - Encargado del proyecto"
+      caption: "Ingeniero Agrónomo Ubaldo Velásquez Esquivel - Asesor del proyecto"
     },
     gallery: [
       "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797109/WhatsApp_Image_2025-11-20_at_12.17.56_PM_1_rths4k.jpg",
