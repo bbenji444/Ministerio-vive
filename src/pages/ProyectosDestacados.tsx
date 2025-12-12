@@ -75,7 +75,7 @@ const ProyectosDestacados = () => {
                         <img
                           src={proyecto.image}
                           alt={proyecto.title}
-                          className="w-full h-auto object-contain bg-white p-8"
+                          className="w-full h-64 md:h-72 object-cover bg-white"
                         />
                       </div>
                     </div>
