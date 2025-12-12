@@ -16,7 +16,7 @@ Gracias a este proyecto, cada familia ahora cuenta con un espacio digno que mejo
     id: 2,
     year: "2019",
     title: "Centro Terapéutico con Banorte",
-    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765239313/Captura_de_pantalla_2025-12-08_181427_wnnoea.png",
+    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765564015/078f5333-a4ec-4b22-bdc3-42e221630e27_dx0obq.jpg",
     content: `En 2019 fuimos ganadores de la convocatoria del programa social "Ayudamos" de Banorte. Ese apoyo llegó en el momento en que más lo necesitábamos y nos permitió transformar lo que era solo una casa en obra negra, sin electricidad, sin baños suficientes y sin condiciones adecuadas, en un espacio digno y lleno de vida.
 
 Gracias a este impulso, ese lugar se convirtió en el Centro Terapéutico de Salud Integral, una edificación de tres pisos con espacios dignos, funcionales y completamente remodelados. Hoy, donde antes había paredes sin terminar, hay salas de terapia; donde había oscuridad, ahora hay luz, acompañamiento y esperanza.
