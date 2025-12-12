@@ -24,6 +24,7 @@ export const programs: Program[] = [
     imagePosition: "center 30%",
     gallery: [
       "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797128/WhatsApp_Image_2025-11-20_at_12.13.40_PM_tewqxv.jpg",
+      "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765561881/WhatsApp_Image_2025-12-12_at_11.51.02_AM_grfnmj.jpg",
       "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797125/WhatsApp_Image_2025-11-20_at_12.29.43_PM_ygihbw.jpg",
       "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797029/WhatsApp_Image_2025-11-20_at_12.09.09_PM_1_sndozx.jpg",
       "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1763797022/WhatsApp_Image_2025-11-20_at_12.09.11_PM_k094gf.jpg",
