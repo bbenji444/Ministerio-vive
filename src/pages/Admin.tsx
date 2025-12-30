@@ -12,6 +12,7 @@ import { Plus, Edit, Trash2, LogOut, Eye, EyeOff, Save, X, Lock } from "lucide-r
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 
+const ADMIN_USERNAME = "Ministerio Vive";
 const ADMIN_PASSWORD = "Utrilla1956";
 
 interface NewsItem {
@@ -34,6 +35,7 @@ const Admin = () => {
   const [isCreating, setIsCreating] = useState(false);
 
   // Auth form state
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
 
@@ -70,15 +72,16 @@ const Admin = () => {
     e.preventDefault();
     setAuthLoading(true);
 
-    if (password === ADMIN_PASSWORD) {
+    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
       sessionStorage.setItem("ministerio_admin_auth", "true");
       setIsAuthenticated(true);
       fetchNews();
       toast.success("¡Bienvenido al panel de administración!");
     } else {
-      toast.error("Contraseña incorrecta");
+      toast.error("Usuario o contraseña incorrectos");
     }
     setAuthLoading(false);
+    setUsername("");
     setPassword("");
   };
 
@@ -223,11 +226,23 @@ const Admin = () => {
                   </div>
                   <CardTitle className="text-2xl">Panel de Administración</CardTitle>
                   <CardDescription>
-                    Ingresa la contraseña para acceder
+                    Ingresa tus credenciales para acceder
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleLogin} className="space-y-4">
+                    <div>
+                      <Label htmlFor="username">Usuario</Label>
+                      <Input
+                        id="username"
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Nombre de usuario"
+                        required
+                        autoFocus
+                      />
+                    </div>
                     <div>
                       <Label htmlFor="password">Contraseña</Label>
                       <Input
@@ -237,7 +252,6 @@ const Admin = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="••••••••"
                         required
-                        autoFocus
                       />
                     </div>
                     <Button

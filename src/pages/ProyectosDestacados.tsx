@@ -27,7 +27,7 @@ Este logro no solo cambió un edificio, cambió la vida de las familias que ahor
     id: 3,
     year: "2016-2019",
     title: "Ludoteca con Fundación CIE",
-    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1764060584/fundacion_ocesa_tbc4ws.png",
+    image: "https://res.cloudinary.com/dbfc6h3fr/image/upload/v1765910439/WhatsApp_Image_2025-12-13_at_8.51.14_PM_h4xkjd.jpg", 
     content: `Gracias al apoyo de Fundación CIE, la comunidad de Clara Córdova Morán hoy cuenta con una Ludoteca que ha transformado la forma en que convivimos, aprendemos y crecemos. Fuimos seleccionados entre varias asociaciones por nuestra labor sobresaliente, y gracias a ello recibimos una ludoteca completamente equipada, decorada y pensada para el desarrollo integral.
 
 En este espacio, niños y adultos descubren nuevas habilidades, fortalecen su creatividad y aprenden jugando. Lo que inició como un sueño compartido, hoy es un lugar lleno de color, risas y posibilidades, que impulsa el bienestar y la unión de toda la comunidad.`
@@ -75,7 +75,7 @@ const ProyectosDestacados = () => {
                         <img
                           src={proyecto.image}
                           alt={proyecto.title}
-                          className="w-full h-64 md:h-72 object-cover bg-white"
+                          className="w-full h-64 md:h-72 object-cover object-[50%_75%] bg-white"
                         />
                       </div>
                     </div>
